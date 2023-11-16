@@ -17,7 +17,13 @@ import com.moreno.obituaries.ui.panes.PaneTareas;
 import com.moreno.obituaries.utilities.Utilities;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Objects;
 
 public class Dashboard extends JFrame{
@@ -95,7 +101,6 @@ public class Dashboard extends JFrame{
 
     private void createDrawer() {
         drawer = Drawer.newDrawer(this)
-                .drawerBackground(contentDrawer.getBackground())
                 .header(headerDrawer)
                 .addChild(contentDrawer)
                 .build();
@@ -124,8 +129,11 @@ public class Dashboard extends JFrame{
     }
 
     private void loadJmenus(){
-        JMenuItem jMenuSettings = new JMenuItem("Configuraciones", new FlatSVGIcon(Objects.requireNonNull(App.class.getResource("icons/svg/settings.svg"))));
-        jMenuSettings.addActionListener(e -> loadSettings());
+        JMenuItem jMenuSettings = new JMenuItem("Configuraciones");
+        jMenuSettings.addActionListener(e -> {
+            drawer.hide();
+            loadSettings();
+        });
         jMenuSettings.setMnemonic(KeyEvent.VK_C);
         menuSettings.add(jMenuSettings);
     }
@@ -148,12 +156,6 @@ public class Dashboard extends JFrame{
         loadIcon(todosFlatToggleButton, 20.0, 20.0);
         loadIcon(nuevoFlatToggleButton, 20.0, 20.0);
 
-//        loadIcon(btnMenu1);
-//        loadIcon(btnMenu2);
-//        loadIcon(btnMenu5);
-//        loadIcon(btnMenu4);
-//        loadIcon(btnMenu3);
-//        loadIcon(btnMenu6);
         loadIcon(toolbarTabbedPaneButton, 16.0, 16.0);
         loadIcon(imgLogo, 130.0, 130.0);
     }

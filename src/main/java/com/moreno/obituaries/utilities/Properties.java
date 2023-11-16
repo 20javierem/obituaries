@@ -46,6 +46,7 @@ public class Properties {
                         setComponentHideMnemonics("false");
                         properties.put("background", "@background");
                         properties.put("accentColor", "@accentColor");
+                        properties.put("foreground", "@foreground");
                         properties.put("RootPane.titleBarShowIcon", "false");
                         save();
                         Utilities.createLogo(new FileInputStream(Objects.requireNonNull(App.class.getResource("images/logo.png")).getFile()));

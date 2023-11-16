@@ -6,6 +6,8 @@ import com.moreno.obituaries.utilities.Properties;
 import com.moreno.obituaries.utilities.Utilities;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,21 +21,50 @@ public class Settings extends JDialog {
     private FlatButton btnColorBacground2;
     private FlatButton btnColorPrincipal;
     private FlatButton btnColorBackground;
+    private FlatButton btnColorForeground;
 
     public Settings() {
-        super(Utilities.jFrame, "Configuraciones");
+        super(Utilities.jFrame, "Configuraciones", true);
         init();
+        btnApply.addActionListener(e -> applyChanges());
         btnColorBackground.addActionListener(e -> {
-            showColorChooser(btnColorBackground,"background");
+            showColorChooser(btnColorBackground, "background");
         });
         btnColorBacground2.addActionListener(e -> {
-            showColorChooser(btnColorBacground2,"background2");
+            showColorChooser(btnColorBacground2, "background2");
         });
         btnColorPrincipal.addActionListener(e -> {
-            showColorChooser(btnColorPrincipal,"accentColor");
+            showColorChooser(btnColorPrincipal, "accentColor");
         });
-
         btnSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+        btnColorForeground.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showColorChooser(btnColorForeground, "foreground");
+            }
+        });
+        ((JTextField) cbbFontSize.getEditor().getEditorComponent()).getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                verify();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                verify();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                verify();
+            }
+        });
+        hechoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -41,7 +72,12 @@ public class Settings extends JDialog {
         });
     }
 
-    private void showColorChooser(FlatButton btn,String variable) {
+    private void verify() {
+        String newSize = ((JTextField) cbbFontSize.getEditor().getEditorComponent()).getText();
+        btnApply.setEnabled(!String.valueOf(Properties.getInstance().getFont().getSize()).equals(newSize));
+    }
+
+    private void showColorChooser(FlatButton btn, String variable) {
         JColorChooser colorChooser = new JColorChooser(btn.getBackground());
         int resultado = JOptionPane.showConfirmDialog(this, colorChooser, "Selecciona un color", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (resultado == JOptionPane.OK_OPTION) {
@@ -52,25 +88,34 @@ public class Settings extends JDialog {
                 case "background" -> Properties.getInstance().setBackground(hex);
                 case "background2" -> Properties.getInstance().setPanelBackground(hex);
                 case "accentColor" -> Properties.getInstance().setAccentColor(hex);
+                case "foreground" -> Properties.getInstance().setForeground(hex);
             }
-            Properties.getInstance().save();
-            updateTheme();
-            Utilities.updateUI(true);
-            Utilities.updateComponents(Utilities.jFrame.getRootPane());
-            Utilities.updateComponents(getRootPane());
-            Utilities.updateUI(false);
-            loadSettings();
+            applyChanges();
         } else {
             System.out.println("No se seleccionó ningún color.");
         }
     }
-    private void updateTheme(){
+
+    private void applyChanges() {
+        Properties.getInstance().setFontSize(String.valueOf(cbbFontSize.getSelectedItem()));
+        Properties.getInstance().save();
+        updateTheme();
+        Utilities.updateUI(true);
+        Utilities.updateComponents(Utilities.jFrame.getRootPane());
+        Utilities.updateComponents(getRootPane());
+        Utilities.updateUI(false);
+        loadSettings();
+        pack();
+    }
+
+    private void updateTheme() {
         Utilities.loadTheme();
         Utilities.updateUI(true);
         Utilities.updateComponents(Utilities.jFrame.getRootPane());
         Utilities.updateComponents(getRootPane());
         Utilities.updateUI(false);
     }
+
     private void init() {
         setContentPane(contentPane);
         pack();
@@ -83,6 +128,7 @@ public class Settings extends JDialog {
         btnColorBackground.setBackground(UIManager.getColor("background"));
         btnColorBacground2.setBackground(UIManager.getColor("Panel.background"));
         btnColorPrincipal.setBackground(UIManager.getColor("accentColor"));
-
+        btnColorForeground.setBackground(UIManager.getColor("foreground"));
+        cbbFontSize.setSelectedItem(Properties.getInstance().getFont().getSize());
     }
 }

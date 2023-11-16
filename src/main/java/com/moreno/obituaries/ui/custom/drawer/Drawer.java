@@ -28,7 +28,6 @@ public class Drawer implements DrawerController {
     private int drawerWidth = 250;
     private int headerHeight = 150;
     private Color background = new Color(30, 30, 30);
-    private Color drawerBackground = Color.WHITE;
     private float backgroundTransparent = 0.5f;
     private int duration = 500;
     private int resolution = 10;
@@ -140,11 +139,6 @@ public class Drawer implements DrawerController {
         return this;
     }
 
-    public Drawer drawerBackground(Color color) {
-        drawerBackground = color;
-        return this;
-    }
-
     public Drawer drawerWidth(int drawerWidth) {
         this.drawerWidth = drawerWidth;
         return this;
@@ -208,11 +202,14 @@ public class Drawer implements DrawerController {
     @Override
     public void show() {
         if (!isShow) {
+
             ((JComponent) header).updateUI();
+            panelDrawer.setDrawerBackground(UIManager.getColor("Panel.background"));
             header.setBackground(UIManager.getColor("background"));
             for (Component children : childrens) {
                 ((JComponent)children).updateUI();
             }
+
             fram.getGlassPane().setVisible(true);
             if (closeOnPress) {
                 panelDrawer.removeMouseListener(mouseEvent);
@@ -258,7 +255,6 @@ public class Drawer implements DrawerController {
     public DrawerController build() {
         panelDrawer = new DrawerPanel(drawerWidth, backgroundTransparent, leftDrawer);
         panelDrawer.setBackground(background);
-        panelDrawer.setDrawerBackground(drawerBackground);
         if (header != null) {
             panelDrawer.addItem(header, "h " + headerHeight);
         }

@@ -88,24 +88,28 @@
               <component id="da5e1" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton1">
                 <constraints/>
                 <properties>
+                  <margin top="5" left="5" bottom="5" right="5"/>
                   <text value="Facturas"/>
                 </properties>
               </component>
               <component id="a790e" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton2">
                 <constraints/>
                 <properties>
+                  <margin top="5" left="5" bottom="5" right="5"/>
                   <text value="Boletas"/>
                 </properties>
               </component>
               <component id="d61f7" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton3">
                 <constraints/>
                 <properties>
+                  <margin top="5" left="5" bottom="5" right="5"/>
                   <text value="Notas"/>
                 </properties>
               </component>
               <component id="f08fe" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton4">
                 <constraints/>
                 <properties>
+                  <margin top="5" left="5" bottom="5" right="5"/>
                   <text value="Ventas"/>
                 </properties>
               </component>
@@ -137,14 +141,12 @@
           </toolbar>
           <component id="7873d" class="com.formdev.flatlaf.extras.components.FlatButton" binding="btnDrawer">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <minimum-size width="30" height="30"/>
-                <preferred-size width="30" height="30"/>
-                <maximum-size width="30" height="30"/>
-              </grid>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="1" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <buttonType value="square"/>
               <focusPainted value="false"/>
+              <margin top="2" left="2" bottom="2" right="2"/>
               <text value=""/>
             </properties>
           </component>
