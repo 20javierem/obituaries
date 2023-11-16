@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.moreno.obituaries.ui.frames.Dashboard">
+  <grid id="27dc6" binding="contentPane" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1018" height="683"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="67c57" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="61f3c" class="javax.swing.JMenuBar" binding="menuBar" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="df1c9" class="javax.swing.JMenu" binding="btnMenuBarProducts">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <text value="&amp;Productos"/>
+                </properties>
+              </component>
+              <component id="9092a" class="javax.swing.JMenu" binding="btnMenuBarSales">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <text value="&amp;Ventas"/>
+                </properties>
+              </component>
+              <component id="42dcf" class="javax.swing.JMenu" binding="btnMenuBarStart">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <text value="&amp;Inicio"/>
+                </properties>
+              </component>
+              <component id="3f0ca" class="javax.swing.JMenu" binding="btnMenuBarWorkers">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <text value="&amp;Usuarios"/>
+                </properties>
+              </component>
+              <hspacer id="1aa8d">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="eac4f" class="javax.swing.JMenu" binding="menuSettings">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <text value="&amp;Configuración"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <toolbar id="796f0" class="com.formdev.flatlaf.extras.components.FlatToolBar" binding="flatToolBar1" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <opaque value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="da5e1" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton1">
+                <constraints/>
+                <properties>
+                  <text value="Facturas"/>
+                </properties>
+              </component>
+              <component id="a790e" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton2">
+                <constraints/>
+                <properties>
+                  <text value="Boletas"/>
+                </properties>
+              </component>
+              <component id="d61f7" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton3">
+                <constraints/>
+                <properties>
+                  <text value="Notas"/>
+                </properties>
+              </component>
+              <component id="f08fe" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarButton4">
+                <constraints/>
+                <properties>
+                  <text value="Ventas"/>
+                </properties>
+              </component>
+              <hspacer id="59589">
+                <constraints/>
+              </hspacer>
+              <toolbar id="17a60" class="com.formdev.flatlaf.extras.components.FlatToolBar" binding="trailingComponent">
+                <constraints/>
+                <properties>
+                  <opaque value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <hspacer id="15452">
+                    <constraints/>
+                  </hspacer>
+                  <component id="39ffe" class="com.formdev.flatlaf.extras.components.FlatButton" binding="toolbarTabbedPaneButton">
+                    <constraints/>
+                    <properties>
+                      <maximumSize width="30" height="30"/>
+                      <minimumSize width="30" height="30"/>
+                      <preferredSize width="30" height="30"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+            </children>
+          </toolbar>
+          <component id="7873d" class="com.formdev.flatlaf.extras.components.FlatButton" binding="btnDrawer">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="30" height="30"/>
+                <preferred-size width="30" height="30"/>
+                <maximum-size width="30" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <focusPainted value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="164cf" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="30" height="-1"/>
+            <preferred-size width="30" height="-1"/>
+            <maximum-size width="30" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <toolbar id="ef793" class="com.formdev.flatlaf.extras.components.FlatToolBar">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <opaque value="false"/>
+              <orientation value="1"/>
+            </properties>
+            <border type="empty"/>
+            <children>
+              <component id="b911d" class="com.moreno.obituaries.ui.custom.ToggleButtonCustom" binding="btn1">
+                <constraints/>
+                <properties>
+                  <maximumSize width="84" height="84"/>
+                  <minimumSize width="84" height="84"/>
+                  <preferredSize width="84" height="84"/>
+                  <text value="Detalles"/>
+                </properties>
+              </component>
+              <component id="c46a0" class="com.moreno.obituaries.ui.custom.ToggleButtonCustom" binding="btn2">
+                <constraints/>
+                <properties>
+                  <maximumSize width="75" height="75"/>
+                  <minimumSize width="75" height="75"/>
+                  <preferredSize width="75" height="75"/>
+                  <text value="Notas"/>
+                </properties>
+              </component>
+              <component id="21958" class="com.moreno.obituaries.ui.custom.ToggleButtonCustom" binding="btn3">
+                <constraints/>
+                <properties>
+                  <maximumSize width="124" height="124"/>
+                  <minimumSize width="124" height="124"/>
+                  <preferredSize width="124" height="124"/>
+                  <text value="Notificaciones"/>
+                </properties>
+              </component>
+              <vspacer id="842db">
+                <constraints/>
+              </vspacer>
+            </children>
+          </toolbar>
+        </children>
+      </grid>
+      <grid id="260e2" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="3" left="3" bottom="3" right="3"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="9c23a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Generando documento..."/>
+            </properties>
+          </component>
+          <hspacer id="41594">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+      <component id="717fe" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="6" anchor="2" fill="1" indent="0" use-parent-layout="false">
+            <maximum-size width="99999" height="2"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="e4c45" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="6" anchor="2" fill="1" indent="0" use-parent-layout="false">
+            <maximum-size width="99999" height="2"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <grid id="4fcd7" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="e2b30" binding="headerDrawer" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="-1"/>
+                <maximum-size width="250" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="ecbde" class="javax.swing.JLabel" binding="imgLogo">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="f8c9" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font style="1"/>
+                  <text value="&lt;html&gt;&lt;center&gt;&quot;PAX ET CONCORDIA&quot; CENTRO DE CONCILIACIÓN EXTRAJUDICIAL&lt;center&gt;&lt;/html&gt;"/>
+                </properties>
+              </component>
+              <component id="e5b03" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Usuario: Javier"/>
+                </properties>
+              </component>
+              <hspacer id="8feb7">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+          <grid id="58241" binding="contentDrawer" layout-manager="GridLayoutManager" row-count="11" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="5" left="5" bottom="5" right="5"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="-1"/>
+                <maximum-size width="250" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="10e5" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Inicio"/>
+                </properties>
+              </component>
+              <component id="68bcb" class="com.formdev.flatlaf.extras.components.FlatToggleButton" binding="dashboardFlatToggleButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <buttonType value="toolBarButton"/>
+                  <focusPainted value="false"/>
+                  <horizontalAlignment value="2"/>
+                  <iconTextGap value="25"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Home"/>
+                </properties>
+              </component>
+              <component id="8f0ae" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Documentos"/>
+                </properties>
+              </component>
+              <component id="6d126" class="com.formdev.flatlaf.extras.components.FlatToggleButton" binding="historialFlatToggleButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <buttonType value="toolBarButton"/>
+                  <focusPainted value="false"/>
+                  <horizontalAlignment value="2"/>
+                  <iconTextGap value="25"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Nuevo"/>
+                </properties>
+              </component>
+              <component id="641bf" class="com.formdev.flatlaf.extras.components.FlatToggleButton" binding="nuevaFlatToggleButton" default-binding="true">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <buttonType value="toolBarButton"/>
+                  <focusPainted value="false"/>
+                  <horizontalAlignment value="2"/>
+                  <iconTextGap value="25"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Todos"/>
+                </properties>
+              </component>
+              <component id="75b8f" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Usuarios"/>
+                </properties>
+              </component>
+              <component id="6e026" class="com.formdev.flatlaf.extras.components.FlatToggleButton" binding="todosFlatToggleButton" default-binding="true">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <buttonType value="toolBarButton"/>
+                  <focusPainted value="false"/>
+                  <horizontalAlignment value="2"/>
+                  <iconTextGap value="25"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Todos"/>
+                </properties>
+              </component>
+              <vspacer id="a232d">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="7200f" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                    <maximum-size width="99999" height="2"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="bb412" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                    <maximum-size width="99999" height="2"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="71801" class="com.formdev.flatlaf.extras.components.FlatToggleButton" binding="nuevoFlatToggleButton" default-binding="true">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <buttonType value="toolBarButton"/>
+                  <focusPainted value="false"/>
+                  <horizontalAlignment value="2"/>
+                  <iconTextGap value="25"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Nuevo"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="a6f64" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <splitpane id="8ca06" binding="splitPane">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="200"/>
+              </grid>
+            </constraints>
+            <properties>
+              <dividerSize value="0"/>
+              <resizeWeight value="1.0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="dc08f" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <splitpane position="left"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b09c8" class="javax.swing.JSeparator">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false">
+                        <maximum-size width="2" height="99999"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <orientation value="1"/>
+                    </properties>
+                  </component>
+                  <tabbedpane id="3e23b" class="com.moreno.obituaries.ui.custom.TabbedPane" binding="tabbedPane">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <trailingComponent value="17a60"/>
+                    </properties>
+                    <border type="none"/>
+                    <children/>
+                  </tabbedpane>
+                </children>
+              </grid>
+              <grid id="ebdfe" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <splitpane position="right"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </splitpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
