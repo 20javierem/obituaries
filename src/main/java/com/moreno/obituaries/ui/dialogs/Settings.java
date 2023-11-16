@@ -4,6 +4,7 @@ import com.formdev.flatlaf.extras.components.FlatButton;
 import com.formdev.flatlaf.extras.components.FlatComboBox;
 import com.moreno.obituaries.utilities.Properties;
 import com.moreno.obituaries.utilities.Utilities;
+import org.jdesktop.swingx.border.DropShadowBorder;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
