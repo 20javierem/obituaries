@@ -12,6 +12,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Settings extends JDialog {
     private JPanel contentPane;
@@ -23,6 +24,9 @@ public class Settings extends JDialog {
     private FlatButton btnColorPrincipal;
     private FlatButton btnColorBackground;
     private FlatButton btnColorForeground;
+    private FlatComboBox cbbBtnArc;
+    private FlatComboBox cbbTxtArc;
+    private DocumentListener documentListener;
 
     public Settings() {
         super(Utilities.jFrame, "Configuraciones", true);
@@ -49,7 +53,7 @@ public class Settings extends JDialog {
                 showColorChooser(btnColorForeground, "foreground");
             }
         });
-        ((JTextField) cbbFontSize.getEditor().getEditorComponent()).getDocument().addDocumentListener(new DocumentListener() {
+        documentListener=new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 verify();
@@ -64,18 +68,18 @@ public class Settings extends JDialog {
             public void changedUpdate(DocumentEvent e) {
                 verify();
             }
-        });
-        hechoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        };
+        cbbFontSize.addActionListener(e->verify());
+        ((JTextField) cbbBtnArc.getEditor().getEditorComponent()).getDocument().addDocumentListener(documentListener);
+        ((JTextField) cbbTxtArc.getEditor().getEditorComponent()).getDocument().addDocumentListener(documentListener);
+        hechoButton.addActionListener(e -> dispose());
     }
 
     private void verify() {
-        String newSize = ((JTextField) cbbFontSize.getEditor().getEditorComponent()).getText();
-        btnApply.setEnabled(!String.valueOf(Properties.getInstance().getFont().getSize()).equals(newSize));
+        String fontSize = String.valueOf(Objects.requireNonNull(cbbFontSize.getSelectedItem()));
+        String btnArc = (((JTextField) cbbBtnArc.getEditor().getEditorComponent()).getText());
+        String txtArc = (((JTextField) cbbTxtArc.getEditor().getEditorComponent()).getText());
+        btnApply.setEnabled(!String.valueOf(Properties.getInstance().getFont().getSize()).equals(fontSize) || !String.valueOf(UIManager.getInt("Button.arc")).equals(btnArc) || !String.valueOf(UIManager.getInt("TextComponent.arc")).equals(txtArc));
     }
 
     private void showColorChooser(FlatButton btn, String variable) {
@@ -99,12 +103,10 @@ public class Settings extends JDialog {
 
     private void applyChanges() {
         Properties.getInstance().setFontSize(String.valueOf(cbbFontSize.getSelectedItem()));
+        Properties.getInstance().setTextComponentArc(String.valueOf(cbbTxtArc.getSelectedItem()));
+        Properties.getInstance().setButtonArc(String.valueOf(cbbBtnArc.getSelectedItem()));
         Properties.getInstance().save();
         updateTheme();
-        Utilities.updateUI(true);
-        Utilities.updateComponents(Utilities.jFrame.getRootPane());
-        Utilities.updateComponents(getRootPane());
-        Utilities.updateUI(false);
         loadSettings();
         pack();
     }
@@ -130,6 +132,8 @@ public class Settings extends JDialog {
         btnColorBacground2.setBackground(UIManager.getColor("Panel.background"));
         btnColorPrincipal.setBackground(UIManager.getColor("accentColor"));
         btnColorForeground.setBackground(UIManager.getColor("foreground"));
-        cbbFontSize.setSelectedItem(Properties.getInstance().getFont().getSize());
+        cbbFontSize.setSelectedItem(String.valueOf(Properties.getInstance().getFont().getSize()));
+        cbbBtnArc.setSelectedItem(UIManager.getInt("Button.arc"));
+        cbbTxtArc.setSelectedItem(UIManager.getInt("TextComponent.arc"));
     }
 }

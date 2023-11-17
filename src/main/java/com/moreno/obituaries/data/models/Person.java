@@ -24,13 +24,13 @@ public class Person {
     private String first_name;
     @NotBlank(message = "Apellidos")
     private String last_name;
-    @NotBlank(message = "Número de documento")
-    private String numberDocument;
+    @NotBlank(message = "Número de celular")
+    private String phone;
     @ManyToOne
     @NotNull(message = "Tipo de documento")
     private TypeDocument typeDocument;
-    @NotBlank(message = "Número de celular")
-    private String phone;
+    @NotBlank(message = "Número de documento")
+    private String numberDocument;
     @NotEmpty(message = "Direcciones")
     @OneToMany(mappedBy = "person")
     private List<Address> addresses=new ArrayList<>();

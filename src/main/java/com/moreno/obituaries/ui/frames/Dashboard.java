@@ -149,6 +149,9 @@ public class Dashboard extends JFrame{
         loadIcon(toolbarButton2);
         loadIcon(toolbarButton3);
         loadIcon(toolbarButton4);
+        loadIcon(btn1,15.0,15.0);
+        loadIcon(btn2,15.0,15.0);
+        loadIcon(btn3,15.0,15.0);
 
         loadIcon(dashboardFlatToggleButton, 20.0, 20.0);
         loadIcon(historialFlatToggleButton, 20.0, 20.0);
@@ -166,11 +169,11 @@ public class Dashboard extends JFrame{
 
     public static void loadIcon(Object component, double width, double height) {
         if (component instanceof JToggleButton) {
-            ((JToggleButton) component).setIcon(Utilities.resizeIcon(new ImageIcon(Objects.requireNonNull(App.class.getResource("images/logo-sin-fondo.png"))).getImage(), width, height));
+            ((JToggleButton) component).setIcon(Utilities.resizeIcon(Utilities.getLogo(), width, height));
         } else if (component instanceof FlatButton) {
-            ((FlatButton) component).setIcon(Utilities.resizeIcon(new ImageIcon(Objects.requireNonNull(App.class.getResource("images/logo-sin-fondo.png"))).getImage(), width, height));
+            ((FlatButton) component).setIcon(Utilities.resizeIcon(Utilities.getLogo(), width, height));
         } else {
-            ((JLabel) component).setIcon(Utilities.resizeIcon(new ImageIcon(Objects.requireNonNull(App.class.getResource("images/logo-sin-fondo.png"))).getImage(), width, height));
+            ((JLabel) component).setIcon(Utilities.resizeIcon(Utilities.getLogo(), width, height));
         }
     }
 
