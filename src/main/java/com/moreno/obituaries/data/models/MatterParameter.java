@@ -1,17 +1,13 @@
 package com.moreno.obituaries.data.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
-@Entity(name = "matter_parameter_tbl")
+@Entity(name = "matter_parameter_obituary_tbl")
 public class MatterParameter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,34 +16,24 @@ public class MatterParameter {
     private Date created;
     @UpdateTimestamp
     private Date updated;
-    @NotNull
-    private Matter matter;
-    @NotBlank(message = "Nombre")
-    private String name;
-    @NotBlank(message = "Tipo")
-    private String type; //String, number, date
+    @ManyToOne
+    private TypeMatterParameter typeMatterParameter;
+    @NotBlank(message = "Valor")
+    private String value;
 
-    public Matter getMatter() {
-        return matter;
+    public TypeMatterParameter getMatterParameter() {
+        return typeMatterParameter;
     }
 
-    public void setMatter(Matter matter) {
-        this.matter = matter;
+    public void setMatterParameter(TypeMatterParameter typeMatterParameter) {
+        this.typeMatterParameter = typeMatterParameter;
     }
 
-    public String getName() {
-        return name;
+    public String getValue() {
+        return value;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setValue(String value) {
+        this.value = value;
     }
 }

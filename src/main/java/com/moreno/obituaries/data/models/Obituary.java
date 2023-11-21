@@ -25,6 +25,6 @@ public class Obituary {
     @ManyToOne
     private Person part2;
     @OneToMany(mappedBy = "obituary")
-    private List<MatterObituary> matterObituaries=new ArrayList<>();
+    private List<Matter> matters=new ArrayList<>();
 
 }

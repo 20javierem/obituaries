@@ -110,14 +110,14 @@ public class Utilities {
     }
 
     public static void updateComponents(JComponent parent) {
-        Font font = parent.getFont();
         parent.updateUI();
-        font = ((Font) UIManager.getDefaults().get("defaultFont")).deriveFont(font.getAttributes());
-        parent.setFont(font);
         if (parent instanceof JMenu) {
             for (Component component : ((JMenu) parent).getMenuComponents()) {
                 updateComponents((JComponent) component);
             }
+        } else if (parent instanceof JSplitPane) {
+            updateComponents((JComponent) ((JSplitPane) parent).getRightComponent());
+            updateComponents((JComponent) ((JSplitPane) parent).getLeftComponent());
         } else {
             for (Component component : parent.getComponents()) {
                 if (component instanceof JComponent) {
@@ -234,7 +234,7 @@ public class Utilities {
 
 
     public static void createLogo(InputStream image) {
-        File file = new File(Constants.getUrlProject()+"/logo.png");
+        File file = new File(Constants.getUrlProject() + "/logo.png");
         try {
             OutputStream outputStream = new FileOutputStream(file);
             IOUtils.copy(image, outputStream);
@@ -245,7 +245,7 @@ public class Utilities {
     }
 
     public static Image getLogo() {
-        File file = new File(Constants.getUrlProject()+"/logo.png");
+        File file = new File(Constants.getUrlProject() + "/logo.png");
         return new ImageIcon(file.getAbsolutePath()).getImage();
     }
 }

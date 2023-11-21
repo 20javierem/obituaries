@@ -1,6 +1,7 @@
 package com.moreno.obituaries.ui.frames;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.formdev.flatlaf.extras.FlatSVGUtils;
 import com.formdev.flatlaf.extras.components.FlatButton;
 import com.formdev.flatlaf.extras.components.FlatToggleButton;
 import com.formdev.flatlaf.extras.components.FlatToolBar;
@@ -144,11 +145,13 @@ public class Dashboard extends JFrame{
     }
 
     private void loadIcons() {
-        btnDrawer.setIcon(new FlatSVGIcon(Objects.requireNonNull(App.class.getResource("icons/svg/hambur.svg"))));
+        btnDrawer.setIcon( new ImageIcon(FlatSVGUtils.svg2image(App.class.getResource("icons/svg/hambur.svg"),1.0f)));
+
         loadIcon(toolbarButton1);
         loadIcon(toolbarButton2);
         loadIcon(toolbarButton3);
         loadIcon(toolbarButton4);
+
         loadIcon(btn1,15.0,15.0);
         loadIcon(btn2,15.0,15.0);
         loadIcon(btn3,15.0,15.0);

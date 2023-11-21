@@ -1,10 +1,6 @@
 package com.moreno.obituaries.data.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity(name = "matter_obituary_tbl")
 public class Matter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,30 +17,38 @@ public class Matter {
     private Date created;
     @UpdateTimestamp
     private Date updated;
-    @NotBlank(message = "Nombre")
-    private String name;
-    @NotBlank(message = "Contenido")
-    private String content;
-    @OneToMany(mappedBy = "matter")
-    private List<MatterParameter> parameters=new ArrayList<>();
+    @ManyToOne
+    private Obituary obituary;
+    @ManyToOne
+    private TypeMatter typeMatter;
+    @OneToMany(mappedBy = "matterObituary")
+    private List<MatterParameter> matterParameterObituaries=new ArrayList<>();
 
-    public String getName() {
-        return name;
+    public Obituary getObituary() {
+        return obituary;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setObituary(Obituary obituary) {
+        this.obituary = obituary;
     }
 
-    public String getContent() {
-        return content;
+    public TypeMatter getMatter() {
+        return typeMatter;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMatter(TypeMatter typeMatter) {
+        this.typeMatter = typeMatter;
     }
 
-    public List<MatterParameter> getParameters() {
-        return parameters;
+    public List<MatterParameter> getMatterParameterObituaries() {
+        return matterParameterObituaries;
+    }
+
+    public String getStringMatter(){
+        String matterString= typeMatter.getContent();
+        for (MatterParameter matterParameter : matterParameterObituaries) {
+            matterString=matterString.replace(matterParameter.getMatterParameter().getName(), matterParameter.getValue());
+        }
+        return matterString;
     }
 }
