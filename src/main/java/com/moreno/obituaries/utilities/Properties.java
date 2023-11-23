@@ -25,7 +25,7 @@ public class Properties {
     }
 
     public void initialize() {
-        File file = new File(Constants.getUrlProject());
+        File file = new File(Constants.URLPROJECT);
         try {
             if (file.exists() || file.mkdirs()) {
                 fileProperties = new File(file.getAbsolutePath() + "/config.properties");

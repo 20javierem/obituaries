@@ -234,7 +234,7 @@ public class Utilities {
 
 
     public static void createLogo(InputStream image) {
-        File file = new File(Constants.getUrlProject() + "/logo.png");
+        File file = new File(Constants.URLPROJECT + "/logo.png");
         try {
             OutputStream outputStream = new FileOutputStream(file);
             IOUtils.copy(image, outputStream);
@@ -245,7 +245,7 @@ public class Utilities {
     }
 
     public static Image getLogo() {
-        File file = new File(Constants.getUrlProject() + "/logo.png");
+        File file = new File(Constants.URLPROJECT + "/logo.png");
         return new ImageIcon(file.getAbsolutePath()).getImage();
     }
 }
